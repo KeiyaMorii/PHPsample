@@ -7,15 +7,21 @@ if ($gender == "man"){
     $gender = "男性";
 } else if ($gender == "woman"){
     $gender = "女性";
+} else {
+    $gender = "不正な値です";
 }
 // 評価
-$tmp_star = $_POST['star'];
+$tmp_star = intval($_POST['star']);
 $star = ''; // 出力用
-for ($i = 0; $i < $tmp_star; $i++){
-    $star .= '★'; // 送信された数字の数だけ★を追加
-}
-for (; $i < 5; $i++){
-    $star .= '☆'; //☆は、「5-送信された数字」分だけ追加
+if ($tmp_star < 1 || $tmp_star > 5){
+    $star = "不正な値です";
+} else {
+    for ($i = 0; $i < $tmp_star; $i++){
+        $star .= '★'; // 送信された数字の数だけ★を追加
+    }
+    for ($i; $i < 5; $i++){
+        $star .= '☆'; //☆は、「5-送信された数字」分だけ追加
+    }
 }
 // ご意見
 $other = $_POST['other'];
