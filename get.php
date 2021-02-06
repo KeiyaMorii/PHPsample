@@ -1,5 +1,5 @@
 <?php
- $fp = fopen("test.txt", "w");
+ $fp = fopen("PHPsample/test.txt", "w");
  if ($fp){
     fwrite($fp, "書き込みテスト1行目");
     fwrite($fp, "書き込みテスト2行目");
